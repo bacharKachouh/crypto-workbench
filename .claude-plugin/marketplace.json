@@ -1,12 +1,17 @@
 {
   "name": "crypto-workbench",
-  "displayName": "Crypto Workbench",
-  "summary": "A structured workflow for turning cryptographic papers into reviewed implementation plans.",
-  "publisher": "local",
-  "license": "MIT",
-  "categories": [
-    "cryptography",
-    "research",
-    "software-engineering"
+  "owner": {
+    "name": "Bachar Kachouh",
+    "email": "bachar.kachouh@hotmail.com"
+  },
+  "plugins": [
+    {
+      "name": "crypto-workbench",
+      "source": "./",
+      "description": "Guided, paper-to-implementation workflow for cryptography: intake, paper review, spec extraction, library mapping, plan review, implementation, and security review.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "cryptography"
+    }
   ]
 }
