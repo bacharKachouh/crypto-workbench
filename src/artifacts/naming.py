@@ -46,6 +46,7 @@ def artifact_path(
     workbench_root: Path,
 ) -> Path:
     """Generate the full path for an artifact within the workspace."""
+    workbench_root = Path(workbench_root)
     subdir = _TYPE_DIRS.get(artifact_type, artifact_type)
     fname = artifact_filename(artifact_type, target, sequence)
     return workbench_root / "extracted" / subdir / fname

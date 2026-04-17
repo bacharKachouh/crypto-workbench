@@ -33,6 +33,7 @@ def write_markdown_artifact(
 
     Returns the path of the written file.
     """
+    workbench_root = Path(workbench_root)
     subdir = _TYPE_DIRS.get(artifact_type, artifact_type)
     target_dir = workbench_root / "extracted" / subdir
 
@@ -74,6 +75,7 @@ def write_yaml_artifact(
 
     Returns the path of the written file.
     """
+    workbench_root = Path(workbench_root)
     subdir = _TYPE_DIRS.get(artifact_type, artifact_type)
     target_dir = workbench_root / "extracted" / subdir
 
