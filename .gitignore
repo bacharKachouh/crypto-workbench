@@ -35,3 +35,6 @@ Thumbs.db
 # Workbench runtime state (generated per project, not part of the plugin)
 .cryptoworkbench/
 .cryptoworkbench-prev/
+
+# Local sandbox for dogfooding the plugin against itself
+sandbox/
