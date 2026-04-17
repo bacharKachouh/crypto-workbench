@@ -1,0 +1,10 @@
+family: finite_fields
+status: scaffold
+objects:
+  - prime_fields
+  - binary_fields
+  - extension_fields
+checks:
+  - representation
+  - reduction
+  - inversion

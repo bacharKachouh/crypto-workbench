@@ -1,0 +1,7 @@
+tool: pari_gp
+status: scaffold
+uses:
+  - number_theory
+  - finite_field_calculations
+notes:
+  - Record command versions used for derived results.

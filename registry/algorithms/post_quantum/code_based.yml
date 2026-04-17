@@ -1,0 +1,9 @@
+family: code_based_cryptography
+status: scaffold
+algorithms:
+  - mceliece
+  - niederreiter
+concerns:
+  - key_size
+  - decoding_failure
+  - parameter_validation

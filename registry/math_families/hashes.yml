@@ -1,0 +1,10 @@
+family: hashes
+status: scaffold
+objects:
+  - hash_functions
+  - xof_functions
+  - commitments
+checks:
+  - domain_separation
+  - personalization
+  - output_length

@@ -1,0 +1,13 @@
+target:
+  name: hkdf-demo
+  type: algorithm
+  primary_sources:
+    - corpus/papers/hkdf-demo.md
+  status: demo
+  classification: Reference-style implementation (demo)
+  notes: |
+    Bundled pedagogical example. This is not a real research target; it
+    exists to demonstrate the Crypto Workbench pipeline end-to-end.
+    Any "paper" in the corpus is a self-authored mini-spec, not an
+    external publication. Implementation produced from this target
+    should be labeled DEMO ONLY.

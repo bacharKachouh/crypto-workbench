@@ -1,0 +1,53 @@
+checklist: side_channels
+description: >
+  Side-channel review checklist for cryptographic implementations.
+  Focused on timing, memory, cache, and power side channels.
+status: approved
+items:
+  - id: constant-time-branching
+    category: timing
+    check: No secret-dependent conditional branches in critical code paths
+    severity: critical
+    notes: Check if/else, switch, ternary on secret values; use constant-time selects
+
+  - id: memory-access-patterns
+    category: memory
+    check: No secret-dependent memory access patterns (array indexing, pointer arithmetic)
+    severity: critical
+    notes: Table lookups indexed by secret values leak through cache timing
+
+  - id: cache-timing
+    category: cache
+    check: No cache-line-dependent behavior on secret data
+    severity: critical
+    notes: AES T-table implementations are a classic example of cache timing leaks
+
+  - id: secret-dependent-indexing
+    category: memory
+    check: Array or table lookups do not use secret values as indices
+    severity: critical
+    notes: Use constant-time table lookup or bitsliced implementations
+
+  - id: memory-zeroization
+    category: memory
+    check: Secret keys, nonces, and intermediate values are zeroized after use
+    severity: important
+    notes: Compiler may optimize away memset; use SecureZeroMemory or volatile writes
+
+  - id: timing-variability
+    category: timing
+    check: Operation timing does not vary with secret input values
+    severity: critical
+    notes: Measure timing variance across different inputs; reject variable-time paths
+
+  - id: compiler-optimization
+    category: toolchain
+    check: Compiler optimizations do not introduce secret-dependent branches or remove zeroization
+    severity: important
+    notes: Check -O2/-O3 output; use compiler barriers or volatile where needed
+
+  - id: power-analysis
+    category: physical
+    check: Implementation considered for power analysis exposure if deployed on embedded targets
+    severity: advisory
+    notes: Primarily relevant for hardware/embedded; note if out of scope for this target

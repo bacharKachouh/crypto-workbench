@@ -1,0 +1,5 @@
+{
+  "name": "crypto-workbench",
+  "version": "0.1.0",
+  "description": "Claude workflow plugin for cryptographic paper review, specification extraction, implementation planning, and security review."
+}

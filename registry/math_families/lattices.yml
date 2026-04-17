@@ -1,0 +1,48 @@
+family: lattices
+status: standardized
+
+defining_structures:
+  - name: LWE (Learning With Errors)
+    description: "Given (A, b = As + e), distinguish from uniform. s is secret, e is small error."
+    hardness: "Believed quantum-hard for appropriate parameters"
+  - name: Module-LWE
+    description: "LWE over modules of polynomial rings. Used by Kyber/ML-KEM and Dilithium/ML-DSA."
+    hardness: "Reduces to LWE; more efficient for structured parameters"
+  - name: Ring-LWE
+    description: "LWE over polynomial rings R_q = Z_q[X]/(X^n + 1). More algebraic structure."
+    hardness: "Reduces to worst-case lattice problems in ideal lattices"
+  - name: SIS (Short Integer Solution)
+    description: "Given A, find short s such that As = 0 mod q."
+    hardness: "Believed quantum-hard"
+  - name: Module-SIS
+    description: "SIS over modules. Used alongside Module-LWE in signature schemes."
+    hardness: "Reduces to SIS"
+  - name: NTRU
+    description: "Lattice problem in quotient ring Z[X]/(X^n - 1). Basis of Falcon/FN-DSA."
+    hardness: "Distinct from LWE; well-studied"
+
+associated_primitives:
+  - ML-KEM (FIPS 203)
+  - ML-DSA (FIPS 204)
+  - FN-DSA (FIPS 206, draft)
+  - FrodoKEM (plain LWE, no ring structure)
+  - NewHope (Ring-LWE, deprecated in favor of Kyber)
+
+hardness_assumptions:
+  - "Decisional Module-LWE"
+  - "Search Module-LWE"
+  - "Module-SIS"
+  - "Ring-LWE"
+  - "NTRU assumption"
+  - "Worst-case to average-case reductions for ideal lattices"
+
+checks:
+  - Noise distribution must match security proof requirements
+  - Parameter sets must provide claimed security level
+  - Rejection sampling must not introduce timing side channels
+  - Polynomial arithmetic must be correct modulo the ring polynomial
+
+references:
+  - "Regev, 'On lattices, learning with errors, random linear codes, and cryptography', 2005"
+  - "Lyubashevsky, Peikert, Regev, 'On ideal lattices and learning with errors over rings', 2010"
+  - "NIST Post-Quantum Cryptography Standardization Process"

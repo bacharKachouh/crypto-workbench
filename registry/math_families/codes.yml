@@ -1,0 +1,9 @@
+family: error_correcting_codes
+status: scaffold
+objects:
+  - goppa_codes
+  - linear_codes
+checks:
+  - decoding
+  - syndrome_format
+  - failure_probability

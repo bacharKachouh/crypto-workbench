@@ -1,0 +1,9 @@
+library: circl
+status: scaffold
+ecosystems:
+  - go
+supports:
+  - elliptic_curves
+  - post_quantum_crypto
+notes:
+  - Check package-level stability before production use.

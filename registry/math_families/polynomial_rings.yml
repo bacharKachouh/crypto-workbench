@@ -1,0 +1,10 @@
+family: polynomial_rings
+status: scaffold
+objects:
+  - quotient_rings
+  - cyclotomic_rings
+  - ntt_domains
+checks:
+  - modulus
+  - coefficient_bounds
+  - multiplication_algorithm

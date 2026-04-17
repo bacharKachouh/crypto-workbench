@@ -1,0 +1,21 @@
+artifact_type: test_vectors
+id: test-vectors-<target>-<sequence>
+status: draft
+target: <target>
+created_from: <source identifier>
+source_version: <version>
+source_digest: <SHA-256, if local>
+related_sources: []
+related_artifacts: []
+created_at: <ISO 8601>
+updated_at: <ISO 8601>
+
+source: ""
+parameter_set: ""
+
+vectors:
+  - id: ""
+    description: ""
+    inputs: {}
+    expected_outputs: {}
+    notes: ""

@@ -1,0 +1,11 @@
+library: blst
+status: scaffold
+ecosystems:
+  - c
+  - rust
+  - go
+supports:
+  - bls12_381
+  - pairings
+notes:
+  - Review subgroup and serialization requirements carefully.

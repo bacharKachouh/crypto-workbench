@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Type / lint caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Workbench runtime state (generated per project, not part of the plugin)
+.cryptoworkbench/
+.cryptoworkbench-prev/

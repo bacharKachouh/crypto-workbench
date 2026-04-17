@@ -1,0 +1,29 @@
+artifact_type: library_mapping
+id: library-mapping-<target>-<sequence>
+status: draft
+target: <target>
+created_from: <source identifier>
+source_version: <version>
+source_digest: <SHA-256, if local>
+related_sources: []
+related_artifacts: []
+created_at: <ISO 8601>
+updated_at: <ISO 8601>
+
+primitives_needed:
+  - ""
+
+mappings:
+  - primitive: ""
+    library: ""
+    function_or_api: ""
+    version: ""
+    license: ""
+    side_channel_status: unknown
+    notes: ""
+
+rejected:
+  - library: ""
+    reason: ""
+
+recommendation: ""

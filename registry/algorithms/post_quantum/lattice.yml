@@ -1,0 +1,55 @@
+family: lattice_based_cryptography
+status: standardized
+
+algorithms:
+  - name: ML-KEM (Kyber)
+    type: KEM
+    standard: "FIPS 203"
+    parameter_sets:
+      - name: ML-KEM-512
+        security_level: 1
+        notes: "128-bit classical security target"
+      - name: ML-KEM-768
+        security_level: 3
+        notes: "192-bit classical security target"
+      - name: ML-KEM-1024
+        security_level: 5
+        notes: "256-bit classical security target"
+    hardness_assumption: Module-LWE
+    status: standardized
+
+  - name: ML-DSA (Dilithium)
+    type: signature
+    standard: "FIPS 204"
+    parameter_sets:
+      - name: ML-DSA-44
+        security_level: 2
+      - name: ML-DSA-65
+        security_level: 3
+      - name: ML-DSA-87
+        security_level: 5
+    hardness_assumption: Module-LWE + Module-SIS
+    status: standardized
+
+  - name: FN-DSA (Falcon)
+    type: signature
+    standard: "FIPS 206 (draft)"
+    parameter_sets:
+      - name: Falcon-512
+        security_level: 1
+      - name: Falcon-1024
+        security_level: 5
+    hardness_assumption: NTRU lattice / Short Integer Solution
+    status: draft
+    notes: "Requires careful constant-time implementation of floating-point sampling"
+
+concerns:
+  - Correct noise sampling is critical for security
+  - Rejection sampling loops must not leak timing information
+  - Parameter validation must reject out-of-range values
+  - Serialization formats differ between draft and final standards
+
+references:
+  - "NIST FIPS 203"
+  - "NIST FIPS 204"
+  - "NIST FIPS 206 (draft)"

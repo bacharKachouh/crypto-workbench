@@ -1,0 +1,7 @@
+tool: magma
+status: scaffold
+uses:
+  - computational_algebra
+  - finite_field_experiments
+notes:
+  - Check licensing and reproducibility constraints.

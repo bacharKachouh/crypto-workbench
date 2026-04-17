@@ -1,0 +1,10 @@
+family: pairings
+status: scaffold
+objects:
+  - weil_pairing
+  - tate_pairing
+  - ate_pairing
+checks:
+  - subgroup_membership
+  - target_group
+  - parameter_security

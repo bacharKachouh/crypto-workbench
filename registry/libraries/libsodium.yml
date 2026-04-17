@@ -1,0 +1,56 @@
+library: libsodium
+status: standardized
+version_range: "1.0.18+"
+license: ISC
+maintenance: active
+website: https://doc.libsodium.org/
+
+ecosystems:
+  - c
+  - python (pysodium, libnacl)
+  - rust (sodiumoxide)
+  - go (via cgo bindings)
+  - javascript (libsodium.js)
+  - many others via FFI
+
+supported_primitives:
+  - name: XSalsa20-Poly1305
+    type: AEAD
+    api: crypto_secretbox
+  - name: XChaCha20-Poly1305
+    type: AEAD
+    api: crypto_aead_xchacha20poly1305_ietf
+  - name: X25519
+    type: key_exchange
+    api: crypto_box / crypto_scalarmult
+  - name: Ed25519
+    type: signature
+    api: crypto_sign
+  - name: BLAKE2b
+    type: hash
+    api: crypto_generichash
+  - name: Argon2id
+    type: password_hash
+    api: crypto_pwhash
+
+side_channel_posture: mitigated
+side_channel_notes: >
+  Designed for constant-time operation. Avoids secret-dependent branches
+  and memory access patterns. Widely reviewed.
+
+platform_support:
+  - linux
+  - macos
+  - windows
+  - ios
+  - android
+  - wasm
+
+known_limitations:
+  - No post-quantum primitives
+  - No pairing-based cryptography
+  - High-level API limits access to some low-level operations
+
+references:
+  - "https://doc.libsodium.org/"
+  - "https://nacl.cr.yp.to/"

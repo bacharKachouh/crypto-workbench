@@ -1,0 +1,10 @@
+family: pairing_based_cryptography
+status: scaffold
+algorithms:
+  - bls_signatures
+  - zk_snark_pairings
+  - identity_based_encryption
+concerns:
+  - subgroup_checks
+  - curve_parameters
+  - final_exponentiation

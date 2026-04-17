@@ -1,0 +1,8 @@
+library: pqclean
+status: scaffold
+ecosystems:
+  - c
+supports:
+  - post_quantum_reference_implementations
+notes:
+  - Useful for clean reference code and test vector comparison.

@@ -1,0 +1,10 @@
+family: elliptic_curve_cryptography
+status: scaffold
+algorithms:
+  - ecdh
+  - ecdsa
+  - eddsa
+concerns:
+  - curve_selection
+  - encoding_validation
+  - side_channels

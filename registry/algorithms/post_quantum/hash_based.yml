@@ -1,0 +1,10 @@
+family: hash_based_signatures
+status: scaffold
+algorithms:
+  - xmss
+  - lms
+  - sphincs_plus
+concerns:
+  - state_management
+  - domain_separation
+  - signature_size

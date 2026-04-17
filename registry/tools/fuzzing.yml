@@ -1,0 +1,8 @@
+tool: fuzzing
+status: scaffold
+uses:
+  - parser_testing
+  - serialization_testing
+  - differential_testing
+notes:
+  - Pair fuzzing with known-answer and negative tests.

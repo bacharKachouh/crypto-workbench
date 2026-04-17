@@ -1,0 +1,88 @@
+checklist: cryptanalysis
+description: >
+  Cryptanalysis-oriented review checklist applied during crypto-security-review.
+status: approved
+items:
+  - id: key-generation
+    category: key lifecycle
+    check: Key generation uses correct parameters and approved randomness source
+    severity: critical
+    notes: Verify key sizes, generation algorithm, and entropy source
+
+  - id: randomness-source
+    category: randomness
+    check: Randomness sampling is uniform, unbiased, and from a CSPRNG
+    severity: critical
+    notes: Check for modular bias, rejection sampling correctness, seed handling
+
+  - id: parameter-validation
+    category: parameters
+    check: All cryptographic parameters are validated before use
+    severity: critical
+    notes: Check bounds, allowed values, and parameter set consistency
+
+  - id: encoding-decoding
+    category: encoding
+    check: Encoding and decoding are correct, canonical, and round-trip safe
+    severity: important
+    notes: Verify no information loss, no ambiguous encodings, canonical form enforced
+
+  - id: serialization-format
+    category: serialization
+    check: Serialization format is well-defined, versioned, and unambiguous
+    severity: important
+    notes: Check for length-prefix correctness, endianness, padding
+
+  - id: domain-separation
+    category: protocol
+    check: Domain separation tags are present and correct where required
+    severity: critical
+    notes: Verify unique tags per context, no tag reuse across different operations
+
+  - id: transcript-binding
+    category: protocol
+    check: Protocol transcripts bind all relevant inputs and context
+    severity: important
+    notes: Check that all public inputs are included in hash/commitment transcripts
+
+  - id: failure-handling
+    category: error handling
+    check: Failures do not leak secret information or leave state inconsistent
+    severity: critical
+    notes: Verify constant-time error paths, no partial state exposure
+
+  - id: invalid-input-behavior
+    category: error handling
+    check: Invalid inputs are rejected early with clear errors
+    severity: important
+    notes: Check for out-of-range values, malformed encodings, unexpected types
+
+  - id: constant-time-risks
+    category: side channels
+    check: Secret-dependent operations use constant-time implementations
+    severity: critical
+    notes: Defer to side_channels.yml for detailed side-channel analysis
+
+  - id: memory-hygiene
+    category: memory
+    check: Secret material is zeroized after use
+    severity: important
+    notes: Check for stack/heap residue, compiler optimization bypass
+
+  - id: statefulness-replay
+    category: state
+    check: Stateful operations resist replay and state reuse attacks
+    severity: important
+    notes: Check nonce uniqueness, counter management, session binding
+
+  - id: misuse-resistance
+    category: API design
+    check: API design resists common misuse patterns
+    severity: important
+    notes: Check for nonce reuse tolerance, key commitment, safe defaults
+
+  - id: proof-to-implementation-gaps
+    category: correctness
+    check: Implementation matches the proven construction without silent simplifications
+    severity: critical
+    notes: Compare against paper algorithms, check for dropped checks or modified steps

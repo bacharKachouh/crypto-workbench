@@ -1,0 +1,6 @@
+{
+  "name": "crypto-workbench",
+  "version": "0.1.0",
+  "description": "Codex workflow plugin for cryptographic paper review, specification extraction, implementation planning, and security review.",
+  "skills": "./codex-skills/"
+}

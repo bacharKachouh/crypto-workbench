@@ -1,0 +1,12 @@
+{
+  "name": "crypto-workbench",
+  "displayName": "Crypto Workbench",
+  "summary": "A structured workflow for turning cryptographic papers into reviewed implementation plans.",
+  "publisher": "local",
+  "license": "MIT",
+  "categories": [
+    "cryptography",
+    "research",
+    "software-engineering"
+  ]
+}

@@ -1,0 +1,7 @@
+tool: sage
+status: scaffold
+uses:
+  - algebraic_experimentation
+  - reference_calculations
+notes:
+  - Treat notebooks and scripts as verification aids, not production implementations.

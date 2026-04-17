@@ -1,0 +1,9 @@
+family: modules
+status: scaffold
+objects:
+  - module_lattices
+  - vector_spaces
+checks:
+  - dimensions
+  - basis_conventions
+  - norm_bounds

@@ -1,0 +1,10 @@
+library: botan
+status: scaffold
+ecosystems:
+  - c_plus_plus
+supports:
+  - classical_crypto
+  - tls
+  - certificates
+notes:
+  - Check algorithm availability by version.

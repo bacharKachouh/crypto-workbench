@@ -1,0 +1,10 @@
+library: openssl
+status: scaffold
+ecosystems:
+  - c
+  - cli
+supports:
+  - tls
+  - classical_crypto
+notes:
+  - Verify provider and version support before use.
