@@ -10,7 +10,7 @@ None — this is the entry point for any new crypto target.
 
 ### Step 1: Create the workspace
 
-Run `initialize_workspace(root)` from `scaffolding.init_workspace` to create the `.cryptoworkbench/` tree with all required directories and workbench files.
+Run `initialize_workspace(root)` from `scaffolding.init_workspace`, where **`root` is the target project root** (typically `.` — the user's cwd). The function appends `.cryptoworkbench/` itself. Do **not** pass `.cryptoworkbench` as the root — you will get a nested `.cryptoworkbench/.cryptoworkbench/` tree.
 
 Verify these exist after initialization:
 - `corpus/` with subdirs: papers, standards, notes, drafts, prior_impls, fetched
