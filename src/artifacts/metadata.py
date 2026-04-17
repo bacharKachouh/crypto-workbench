@@ -144,6 +144,7 @@ def compute_source_digest(path: Path) -> str:
 
     Raises FileNotFoundError if the file does not exist.
     """
+    path = Path(path)
     if not path.exists():
         raise FileNotFoundError(f"No such file: {path}")
     h = hashlib.sha256()
