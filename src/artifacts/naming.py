@@ -11,7 +11,20 @@ from pathlib import Path
 from artifacts.metadata import _TYPE_SLUGS
 
 # Artifact types that use Markdown format.
-_MARKDOWN_TYPES = {"review", "ambiguity_log", "impl_spec", "security_review", "design_note", "comparison", "implementation"}
+_MARKDOWN_TYPES = {
+    "review",
+    "ambiguity_log",
+    "impl_spec",
+    "security_review",
+    "design_note",
+    "comparison",
+    "implementation",
+    "scenario",
+    "synthesis_triage",
+    "synthesis_deepdive",
+    "synthesis_splices",
+    "composed_design",
+}
 
 # Artifact types that use YAML format.
 _YAML_TYPES = {"notation_map", "library_mapping", "test_vectors", "source_index"}
@@ -29,6 +42,11 @@ _TYPE_DIRS = {
     "test_vectors": "test_vectors",
     "source_index": "source_indexes",
     "implementation": "implementations",
+    "scenario": "scenarios",
+    "synthesis_triage": "synthesis",
+    "synthesis_deepdive": "synthesis",
+    "synthesis_splices": "synthesis",
+    "composed_design": "synthesis",
 }
 
 

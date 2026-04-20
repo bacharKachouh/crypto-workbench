@@ -39,6 +39,18 @@ Read `${CODEX_PLUGIN_ROOT}/registry/checklists/side_channels.yml`. For each item
 
 Record each finding with the same structure.
 
+### Step 3.5: Novel-construction checklist (conditional)
+
+Read the impl spec's `classification`. If it is `Research prototype / novel construction`, apply the **novel-construction checklist** in addition to the standard checks:
+
+- **Proof composition gaps** — the backbone paper's security proof does not cover the spliced components. For each splice listed in the composed-design artifact's "Approved Splices", note whether the proof gap is documented and whether any attempt has been made to argue informally about why the splice is sound.
+- **Assumption compatibility** — do the borrowed pieces rely on the same computational assumptions as the backbone (e.g., LWE vs. Ring-LWE, DDH vs. CDH, random-oracle vs. standard-model)? List mismatches.
+- **New attack surfaces** — the composition may expose data paths that neither original paper examined. Identify any splice boundaries that cross a trust boundary, a randomness domain, or an adversary-visible surface.
+- **Constant-time at splice boundaries** — when two components are spliced, the concatenation's constant-time posture is not guaranteed even if each piece is individually constant-time. Audit the joined path.
+- **Absence of end-to-end proof** — record explicitly that no end-to-end proof exists for the composed scheme and that any deployment decision must treat this as a research prototype.
+
+Record each novel-construction finding with the same `{severity, category, description, recommendation}` schema used for the standard checks, but tag `category = novel_construction`. The risk ledger from the composed-design artifact (propagated through the impl spec's open questions) is the starting point — every entry there should appear somewhere in the findings (either as confirmed-resolved, confirmed-unresolved, or newly-discovered implication).
+
 ### Step 4: Verify test coverage
 
 Confirm the test suite includes:

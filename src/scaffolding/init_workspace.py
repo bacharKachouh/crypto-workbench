@@ -25,6 +25,9 @@ WORKSPACE_DIRS = (
     "extracted/library_mappings",
     "extracted/test_vectors",
     "extracted/source_indexes",
+    "extracted/scenarios",
+    "extracted/synthesis",
+    "extracted/implementations",
     "workbench",
     "cache",
 )

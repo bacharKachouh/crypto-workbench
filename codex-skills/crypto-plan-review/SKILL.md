@@ -49,6 +49,14 @@ Identify any custom cryptographic code in the plan that should be delegated to t
 
 Check dependency choices and threat-model assumptions against the review and library mapping. Flag any mismatches.
 
+### Step 5.5: Novel-construction acknowledgment (conditional)
+
+Check the impl spec's `classification` field. If it is `Research prototype / novel construction` (the classification produced by the topic-mode branch's composed-design artifact), surface a mandatory acknowledgment before any verdict can be recorded:
+
+> "This plan is for a cross-paper composed scheme. No end-to-end security proof exists for the composition. The risk ledger from the composed design has been copied into the impl spec's open questions. Approving implementation means you accept that the scheme is a research prototype and must not be deployed to production. Do you want to (a) approve (research prototype), (b) approve-with-conditions (list the conditions), or (c) block (list the blockers)?"
+
+Record the user's acknowledgment verbatim in `decisions.md` under a `## Novel-construction acknowledgment` section. If the user picks (c), the verdict is `Blocked` and the skill stops here.
+
 ### Step 6: Record verdict
 
 Write the plan review verdict to `.cryptoworkbench/workbench/decisions.md`:
@@ -56,7 +64,7 @@ Write the plan review verdict to `.cryptoworkbench/workbench/decisions.md`:
 - **Approved with conditions** — list specific changes required
 - **Blocked** — list unresolved blockers that must be addressed first
 
-Verify the plan carries an implementation classification label.
+Verify the plan carries an implementation classification label. For novel-construction classifications, the verdict must either be `Approved with conditions` (naming the conditions) or `Blocked`; a plain `Approved` is not acceptable for a research-prototype composed scheme.
 
 Report the verdict and either recommend `crypto-implement` (if approved) or list what must be resolved first.
 

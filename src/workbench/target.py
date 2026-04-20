@@ -22,6 +22,10 @@ _DEFAULT_TARGET: dict[str, Any] = {
     "type": "",
     "primary_sources": [],
     "status": "draft",
+    "mode": "",
+    "scenario_id": "",
+    "research_angle": "",
+    "papers": [],
 }
 
 

@@ -25,6 +25,11 @@ _TYPE_SLUGS = {
     "test_vectors": "test-vectors",
     "source_index": "source-index",
     "implementation": "implementation",
+    "scenario": "scenario",
+    "synthesis_triage": "synthesis-triage",
+    "synthesis_deepdive": "synthesis-deepdive",
+    "synthesis_splices": "synthesis-splices",
+    "composed_design": "composed-design",
 }
 
 

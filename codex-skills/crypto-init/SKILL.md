@@ -29,7 +29,8 @@ Ask the user which path they want:
 > "How would you like to start?
 >  1. **Real target now** — tell me what paper / spec / scheme you want to work on
 >  2. **Use a demo** — install a bundled example target and walk through the pipeline end-to-end
->  3. **Init only** — finish here; leave the target deferred and pick it up later"
+>  3. **Init only** — finish here; leave the target deferred and pick it up later
+>  4. **Research topic (use-case-driven)** — for hard research problems where you want to synthesize a composed variant across multiple papers. Not for standard crypto needs."
 
 Then execute the chosen branch:
 
@@ -66,12 +67,23 @@ Tell the user clearly that this target is labeled as a demo — any artifact pro
 
 Leave `current_target.yaml` with its default empty fields and `status: draft`. Do not prompt further. Tell the user they can invoke `crypto-intake` later; if they run it with a deferred target, downstream skills will prompt for the missing fields at that point.
 
+#### Branch D — Research topic (use-case-driven)
+
+This path is for **hard research problems only** — novel threat models, novel composition requirements, non-standard constraints, post-quantum transitions of legacy protocols, etc. It is not for standard crypto needs (if you need AES-GCM or ECDSA, use Branch A and let `crypto-library-map` match a mature library).
+
+Ask the user for a target slug (e.g. `multi-paper-oprf`, `threshold-pq-sig`). Then call `save_target(workbench_root, {name, type: "topic", primary_sources: [], mode: "topic", status: "scenario_pending"})` from `workbench.target`.
+
+Tell the user to run `crypto-scenario` next. That skill elicits the scenario prose, the research-angle declaration, runs the registry-backed sanity check, and collects the paper set.
+
 ### Step 4: Confirm initialization
 
 Report to the user:
 - Workspace location
-- Path taken (real / demo / deferred) and the recorded target
-- Next step: `crypto-intake` to scan and classify source material (or `crypto-init` again to pick a path when deferred)
+- Path taken (real / demo / deferred / topic) and the recorded target
+- Next step:
+  - Branches A/B: `crypto-intake` to scan and classify source material
+  - Branch C: `crypto-init` again later to pick a path
+  - Branch D: `crypto-scenario` to intake the scenario and paper set
 
 ## Shared modules
 

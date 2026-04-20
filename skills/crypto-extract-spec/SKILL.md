@@ -4,13 +4,18 @@ Convert reviewed material into implementation-facing specifications.
 
 ## Gate
 
-Verify `extracted/reviews/` contains a review artifact for the current target. If not, tell the user to run `crypto-paper-review` first.
+Load the current target with `load_target(workbench_root)`.
+
+- **Topic-mode targets** (`target.mode == "topic"`): verify `extracted/synthesis/` contains a composed-design artifact for the current target. If not, tell the user to run `crypto-synthesize` first.
+- **Single-paper targets**: verify `extracted/reviews/` contains a review artifact for the current target. If not, tell the user to run `crypto-paper-review` first.
 
 ## Steps
 
 ### Step 1: Read source material
 
-Read the paper, the review artifact, and any supplementary sources identified in the source index.
+**Topic-mode branch:** the primary source is the composed-design artifact under `extracted/synthesis/<target>-composed-design-*.md`. Read it, along with every per-paper review artifact in `extracted/reviews/` (the set written by `crypto-multi-review`) and the scenario artifact in `extracted/scenarios/`. The composed design's pseudocode + risk ledger is the authoritative specification — per-paper reviews are reference material.
+
+**Single-paper branch:** read the paper, the review artifact, and any supplementary sources identified in the source index.
 
 ### Step 2: Build notation map
 
@@ -57,12 +62,16 @@ Do not guess on blocking items. If the user wants to defer a blocker, note that 
 
 ### Step 5: Produce implementation spec
 
+**Topic-mode targets**: the composed-design artifact carries `classification: Research prototype / novel construction`. This classification is **forced** on the impl spec — do not offer the user a selection, and do not downgrade. Additionally, copy the composed design's **risk ledger** verbatim into the impl spec's `open_questions` field (merge, do not replace, with any ambiguity-log-derived open items) so the risks propagate into plan-review and security-review.
+
+**Single-paper targets**: classification is user-selectable as normal.
+
 Call `build_impl_spec()` from `specs.build_impl_spec` with:
 - `workbench_root` = `.cryptoworkbench`
 - `target` = current target name
 - `title` = descriptive title
-- `created_from` = path to primary source
-- `classification` = one of: "Research prototype", "Reference-style implementation", "Library-backed implementation", "Production-oriented integration", "Spec-only / blocked by unresolved ambiguity"
+- `created_from` = path to primary source (composed-design artifact for topic mode, paper for single-paper)
+- `classification` = one of: "Research prototype", "Research prototype / novel construction" (topic-mode forced), "Reference-style implementation", "Library-backed implementation", "Production-oriented integration", "Spec-only / blocked by unresolved ambiguity". The "Production-oriented integration" value is **refused** for topic-mode targets.
 - `summary`, `data_types`, `module_boundaries`, `function_signatures`, `randomness_requirements`, `serialization_rules`, `parameter_constraints`, `dependencies` = your spec content
 - `test_plan_kat` = known-answer test vectors
 - `test_plan_edge_cases` = edge case tests
