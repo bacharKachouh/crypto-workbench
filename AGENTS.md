@@ -32,7 +32,7 @@ These gates are mandatory. Do not skip or reorder them.
 
 ## Skills
 
-This plugin provides 9 skills for the staged workflow:
+This plugin provides 12 skills for the staged workflow:
 
 | Skill | Stage |
 |-------|-------|
@@ -45,6 +45,9 @@ This plugin provides 9 skills for the staged workflow:
 | `crypto-implement` | Implement with traceability, tests-first, safe APIs |
 | `crypto-security-review` | Security-focused implementation review |
 | `crypto-status` | Read-only pipeline state readout ("where am I?") |
+| `crypto-scenario` | Topic mode: scenario, research angle and paper set |
+| `crypto-multi-review` | Topic mode: one scenario-tilted review per paper |
+| `crypto-synthesize` | Topic mode: compose a research-prototype design from several papers |
 
 Skill definitions for Codex live in `codex-skills/crypto-*/SKILL.md`.
 

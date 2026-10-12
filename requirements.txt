@@ -1,0 +1,4 @@
+# Runtime dependency of the shared modules under src/.
+PyYAML>=6.0
+# Optional: PDF text extraction during intake.
+pypdf>=4.0
